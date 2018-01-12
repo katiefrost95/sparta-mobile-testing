@@ -1,9 +1,6 @@
-require 'pry'
 require 'appium_lib'
-
-RSpec.configure do |config|
-  config.formatter = :documentation
-end
+require 'cucumber'
+require_relative '../lib/budget_app'
 
 def opts
   {
@@ -15,3 +12,7 @@ def opts
     }
   }
 end
+
+Appium::Driver.new(opts, true)
+
+World(BudgetApp)
